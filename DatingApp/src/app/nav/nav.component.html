@@ -1,0 +1,50 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+      <div class="navbar-header">
+      <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="router-link-active" >Dating App</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>      
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto" *ngIf="loggedIn()">
+        <li class="nav-item" routerLinkActive="nav-item active">
+          <a class="nav-link" [routerLink]="['/members']">Matches</a>
+        </li>
+        <li class="nav-item" routerLinkActive="nav-item active">
+          <a class="nav-link" [routerLink]="['/lists']"  >Lists</a>
+        </li>
+        <li class="nav-item" routerLinkActive="nav-item active">
+          <a class="nav-link" [routerLink]="['/messages']"  >Messages</a>
+        </li>
+       
+      </ul>
+      <form *ngIf="!loggedIn()" #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
+          <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control mr-sm-2" aria-label="Email" required name="Username" [(ngModel)]="model.Username">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control mr-sm-2" aria-label="Password" required name="Password" [(ngModel)]="model.password">
+            </div>
+            <button class="btn btn-success" type="submit" [disabled]="!loginForm.valid">Sign In</button>
+      </form>
+
+      <ul *ngIf="loggedIn()" class="navbar-nav mr-right"> 
+        <li>
+          <img src={{photoUrl}}>
+        </li>     
+          <li class="nav-item dropdown" dropdown>
+            <a class="nav-link dropdown-toggle" (click)="false" id="dropdown03" dropdownToggle>Welcome {{authService.decodedToken?.unique_name | titlecase}}</a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown03" *dropdownMenu>
+              <li><a class="dropdown-item" [routerLink]="['/member/edit']" routerLinkActive="router-link-active" ><i class="fa fa-user"></i>Edit Profile</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a class="dropdown-item" (click)= "logout()"><i class="fa fa-sign-out"></i>Logout</a></li>
+            </ul>
+          </li>
+      </ul>
+    </div>
+  </div>
+  </nav>
+  
+  
