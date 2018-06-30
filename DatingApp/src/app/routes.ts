@@ -10,6 +10,7 @@ import { MemberListResolver } from './_resolvers/member-List.resolver';
 import { MemberEditComponent } from './Members/member-edit/member-edit.component';
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { ListsResolver } from './_resolvers/lists.resolver';
+import { MessagesResolver } from './_resolvers/message.resolver';
 
 export const appRouts: Routes = [
     { path: 'home', component: HomeComponent},
@@ -21,8 +22,8 @@ export const appRouts: Routes = [
             { path: 'members', component: MemberListComponent, resolve: {users: MemberListResolver}},
             {path: 'members/:id', component: MemberDetailComponent, resolve:  { user: MemberDeatilResolver}},
             {path: 'member/edit', component: MemberEditComponent, resolve: {user: MemberEditResolver}},
-            { path: 'messages', component: MessagesComponent},
-            { path: 'lists', component: ListsComponent, resolve: {user: ListsResolver}},
+            { path: 'messages', component: MessagesComponent, resolve: {messages: MessagesResolver}},
+            { path: 'lists', component: ListsComponent, resolve: {users: ListsResolver}},
         ]
     },
   { path: '**', redirectTo: 'home', pathMatch: 'full'}

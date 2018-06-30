@@ -20,8 +20,8 @@ likesParam: string;
 
   ngOnInit() {
     this.route.data.subscribe(data => {
-      this.users = data['user'].result;
-      this.pagination = data['user'].pagination;
+      this.users = data['users'].result;
+      this.pagination = data['users'].pagination;
     });
     this.likesParam = 'Likers';
   }
