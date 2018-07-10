@@ -13,7 +13,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/DatingApp",
+            "outputPath": "../DatingApp.API/wwwroot"
+            ,
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,13 +24,7 @@
               "src/assets"
             ],
             "styles": [
-              "../DatingApp/node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "../DatingApp/node_modules/font-awesome/css/font-awesome.min.css",
-              "../DatingApp/node_modules/alertifyjs/build/css/alertify.min.css",
-              "../DatingApp/node_modules/alertifyjs/build/css/themes/bootstrap.min.css",
-              "../DatingApp/src/styles.css",
-              "../DatingApp/node_modules/bootswatch/dist/journal/bootstrap.min.css",
-              "../DatingApp/node_modules/ngx-bootstrap/datepicker/bs-datepicker.css"
+              "../DatingApp/src/styles.css"
             ],
             "scripts": [
               "../DatingApp/node_modules/alertifyjs/build/alertify.min.js"
